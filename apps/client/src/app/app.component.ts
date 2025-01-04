@@ -1,13 +1,10 @@
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  imports: [NxWelcomeComponent, RouterModule],
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+	selector: 'chapchapies-root',
+	template: ' <router-outlet></router-outlet> ',
+	changeDetection: ChangeDetectionStrategy.OnPush,
+	imports: [RouterOutlet],
 })
-export class AppComponent {
-  title = 'chapchapies';
-}
+export class AppComponent {}

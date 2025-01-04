@@ -43,7 +43,7 @@
 				"index": "apps/client/src/index.html",
 				"inlineStyleLanguage": "scss",
 				"outputPath": "dist/apps/client",
-				"styles": [],
+				"styles": ["libs/shared-ui/styles.scss"],
 				"tsConfig": "apps/client/tsconfig.app.json"
 			}
 		},

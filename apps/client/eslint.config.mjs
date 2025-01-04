@@ -1,23 +1,3 @@
-import base from '../../eslint.config.mjs';
+import base from '../../eslint.frontend.config.mjs';
 
-export default [
-	...base,
-	{
-		files: ['**/*.ts', '**/*.js'],
-		rules: {
-			'@nx/enforce-module-boundaries': [
-				'error',
-				{
-					enforceBuildableLibDependency: true,
-					allow: [],
-					depConstraints: [
-						{
-							sourceTag: 'scope:host',
-							onlyDependOnLibsWithTags: ['*'],
-						},
-					],
-				},
-			],
-		},
-	},
-];
+export default [...base];

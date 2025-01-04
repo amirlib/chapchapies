@@ -10,17 +10,17 @@
 		"module": "esnext",
 		"moduleResolution": "bundler",
 		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
 		"noImplicitReturns": true,
 		"noPropertyAccessFromIndexSignature": true,
-		"paths": {},
+		"paths": {
+			"@chapchapies/shared-ui": ["libs/shared-ui/src/index.ts"]
+		},
 		"rootDir": ".",
 		"skipDefaultLibCheck": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"target": "esnext"
 	},
-	"exclude": [
-		"node_modules",
-		"tmp"
-	]
+	"exclude": ["node_modules", "tmp"]
 }

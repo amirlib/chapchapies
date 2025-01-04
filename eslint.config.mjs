@@ -33,6 +33,7 @@ export default [
 			'@stylistic/ts/comma-dangle': ['error', 'always-multiline'],
 			'@stylistic/ts/indent': ['error', 'tab'],
 			'@stylistic/ts/object-curly-spacing': ['error', 'always'],
+			'@stylistic/ts/object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
 			'@stylistic/ts/quote-props': ['error', 'as-needed'],
 			'@stylistic/ts/quotes': ['error', 'single'],
 		},

@@ -1,0 +1,19 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "shared-ui",
+	"prefix": "chapchapies",
+	"projectType": "library",
+	"sourceRoot": "libs/shared-ui/src",
+	"tags": [],
+	"targets": {
+		"build": {
+			"executor": "@nx/angular:ng-packagr-lite"
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint"
+		},
+		"test": {
+			"executor": "@nx/jest:jest"
+		}
+	}
+}

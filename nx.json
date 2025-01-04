@@ -1,10 +1,7 @@
 {
 	"$schema": "./node_modules/nx/schemas/nx-schema.json",
 	"namedInputs": {
-		"default": [
-			"{projectRoot}/**/*",
-			"sharedGlobals"
-		],
+		"default": ["{projectRoot}/**/*", "sharedGlobals"],
 		"production": [
 			"default",
 			"!{projectRoot}/.eslintrc.json",
@@ -15,9 +12,7 @@
 			"!{projectRoot}/src/test-setup.[jt]s",
 			"!{projectRoot}/test-setup.[jt]s"
 		],
-		"sharedGlobals": [
-			"{workspaceRoot}/.github/workflows/ci.yml"
-		]
+		"sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
 	},
 	"nxCloudId": "6778f9efc50d927a32967766",
 	"targetDefaults": {
@@ -30,15 +25,11 @@
 					"optimization": true
 				}
 			},
-			"outputs": [
-				"{workspaceRoot}/dist/{projectRoot}"
-			]
+			"outputs": ["{workspaceRoot}/dist/{projectRoot}"]
 		},
 		"extract-i18n": {
 			"cache": true,
-			"outputs": [
-				"{options.outputPath}"
-			]
+			"outputs": ["{options.outputPath}"]
 		},
 		"serve": {
 			"executor": "@nx/js:node",
@@ -46,36 +37,17 @@
 				"buildTarget": "{projectName}:build"
 			}
 		},
-
-
-		"@angular-devkit/build-angular:application": {
+		"test": {
+			"executor": "@nx/jest:jest",
 			"cache": true,
-			"dependsOn": [
-				"^build"
-			],
-			"inputs": [
-				"production",
-				"^production"
-			]
-		},
-		"@nx/eslint:lint": {
-			"cache": true,
-			"inputs": [
-				"default",
-				"{workspaceRoot}/.eslintignore",
-				"{workspaceRoot}/eslint.config.cjs"
-			]
-		},
-		"@nx/jest:jest": {
-			"cache": true,
-			"inputs": [
-				"default",
-				"^production",
-				"{workspaceRoot}/jest.preset.js"
-			],
+			"dependsOn": ["build"],
 			"options": {
-				"passWithNoTests": true
+				"passWithNoTests": true,
+				"jestConfig": "{projectRoot}/jest.config.ts",
+				"runInBand": true
 			},
+			"inputs": ["default", "^production", "{workspaceRoot}/jest.preset.cjs"],
+			"outputs": ["{workspaceRoot}/jest-reports/jest-junit-{projectName}.xml"],
 			"configurations": {
 				"ci": {
 					"ci": true,
@@ -83,10 +55,33 @@
 				}
 			}
 		},
+		"@angular-devkit/build-angular:application": {
+			"cache": true,
+			"dependsOn": ["^build"],
+			"inputs": ["production", "^production"]
+		},
+		"@nx/angular:ng-packagr-lite": {
+			"dependsOn": ["^build"],
+			"outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+			"options": {
+				"project": "{projectRoot}/ng-package.json"
+			},
+			"configurations": {
+				"production": {
+					"tsConfig": "{projectRoot}/tsconfig.lib.json"
+				},
+				"development": {
+					"tsConfig": "{projectRoot}/tsconfig.lib.json"
+				}
+			},
+			"defaultConfiguration": "production"
+		},
+		"@nx/eslint:lint": {
+			"cache": true,
+			"inputs": ["default", "{workspaceRoot}/.eslintignore", "{workspaceRoot}/eslint.config.cjs"]
+		},
 		"e2e-ci--**/*": {
-			"dependsOn": [
-				"^build"
-			]
+			"dependsOn": ["^build"]
 		}
 	},
 	"plugins": [
@@ -109,6 +104,13 @@
 			"linter": "eslint",
 			"style": "scss",
 			"unitTestRunner": "jest"
+		},
+		"@nx/angular:library": {
+			"linter": "eslint",
+			"unitTestRunner": "jest"
+		},
+		"@nx/angular:component": {
+			"style": "scss"
 		}
 	}
 }
