@@ -1,18 +1,12 @@
-const nx = require('@nx/eslint-plugin');
+import nx from '@nx/eslint-plugin';
 import stylistic from '@stylistic/eslint-plugin-ts';
 
-module.exports = [
+export default [
 	...nx.configs['flat/base'],
 	...nx.configs['flat/typescript'],
 	...nx.configs['flat/javascript'],
 	{
-		ignores: [
-			'**/*.generated.ts',
-			'**/.github',
-			'**/dist',
-			'**/generated',
-			'**/node_modules',
-		],
+		ignores: ['**/*.generated.ts', '**/.github', '**/dist', '**/generated', '**/node_modules'],
 	},
 	stylistic.configs['all-flat'],
 	{
@@ -34,8 +28,13 @@ module.exports = [
 		},
 	},
 	{
-		files: ['**/*.ts', '**/*.js'],
-		// Override or add rules here
-		rules: {},
+		files: ['**/*.ts', '**/*.js', '**/*.mjs'],
+		rules: {
+			'@stylistic/ts/comma-dangle': ['error', 'always-multiline'],
+			'@stylistic/ts/indent': ['error', 'tab'],
+			'@stylistic/ts/object-curly-spacing': ['error', 'always'],
+			'@stylistic/ts/quote-props': ['error', 'as-needed'],
+			'@stylistic/ts/quotes': ['error', 'single'],
+		},
 	},
 ];

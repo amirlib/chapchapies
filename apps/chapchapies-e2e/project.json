@@ -1,9 +1,0 @@
-{
-  "name": "chapchapies-e2e",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "projectType": "application",
-  "sourceRoot": "apps/chapchapies-e2e/src",
-  "implicitDependencies": ["chapchapies"],
-  "// targets": "to see all targets run: nx show project chapchapies-e2e --web",
-  "targets": {}
-}

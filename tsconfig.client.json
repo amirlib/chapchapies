@@ -1,0 +1,13 @@
+{
+	"extends": "./tsconfig.base.json",
+	"angularCompilerOptions": {
+		"enableI18nLegacyMessageIdFormat": false,
+		"strictInjectionParameters": true,
+		"strictInputAccessModifiers": true,
+		"strictTemplates": true
+	},
+	"compilerOptions": {
+		"lib": ["es2022", "dom"],
+		"strict": true
+	}
+}

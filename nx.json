@@ -21,6 +21,33 @@
 	},
 	"nxCloudId": "6778f9efc50d927a32967766",
 	"targetDefaults": {
+		"build": {
+			"cache": true,
+			"configurations": {
+				"production": {
+					"extractLicenses": true,
+					"inspect": false,
+					"optimization": true
+				}
+			},
+			"outputs": [
+				"{workspaceRoot}/dist/{projectRoot}"
+			]
+		},
+		"extract-i18n": {
+			"cache": true,
+			"outputs": [
+				"{options.outputPath}"
+			]
+		},
+		"serve": {
+			"executor": "@nx/js:node",
+			"options": {
+				"buildTarget": "{projectName}:build"
+			}
+		},
+
+
 		"@angular-devkit/build-angular:application": {
 			"cache": true,
 			"dependsOn": [

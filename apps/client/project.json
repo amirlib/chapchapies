@@ -1,0 +1,72 @@
+{
+	"name": "client",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"projectType": "application",
+	"prefix": "app",
+	"sourceRoot": "apps/client/src",
+	"tags": [],
+	"targets": {
+		"build": {
+			"configurations": {
+				"development": {
+					"extractLicenses": false,
+					"optimization": false,
+					"sourceMap": true
+				},
+				"production": {
+					"budgets": [
+						{
+							"maximumError": "1mb",
+							"maximumWarning": "500kb",
+							"type": "initial"
+						},
+						{
+							"maximumError": "8kb",
+							"maximumWarning": "4kb",
+							"type": "anyComponentStyle"
+						}
+					],
+					"outputHashing": "all"
+				}
+			},
+			"defaultConfiguration": "production",
+			"executor": "@angular-devkit/build-angular:application",
+			"options": {
+				"assets": [
+					{
+						"glob": "**/*.*",
+						"input": "apps/client/assets",
+						"output": "assets/"
+					}
+				],
+				"browser": "apps/client/src/main.ts",
+				"index": "apps/client/src/index.html",
+				"inlineStyleLanguage": "scss",
+				"outputPath": "dist/apps/client",
+				"styles": [],
+				"tsConfig": "apps/client/tsconfig.app.json"
+			}
+		},
+		"extract-i18n": {
+			"executor": "@angular-devkit/build-angular:extract-i18n",
+			"options": {
+				"buildTarget": "client:build"
+			}
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint"
+		},
+		"serve": {
+			"configurations": {
+				"development": {
+					"buildTarget": "client:build:development"
+				},
+				"production": {
+					"buildTarget": "client:build:production"
+				}
+			},
+			"defaultConfiguration": "development",
+			"executor": "@angular-devkit/build-angular:dev-server"
+		}
+	}
+}
