@@ -74,7 +74,7 @@
 					"tsConfig": "{projectRoot}/tsconfig.lib.json"
 				}
 			},
-			"defaultConfiguration": "production"
+			"defaultConfiguration": "development"
 		},
 		"@nx/eslint:lint": {
 			"cache": true,
