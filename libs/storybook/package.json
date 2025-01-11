@@ -1,0 +1,10 @@
+{
+	"name": "@chapchapies/storybook",
+	"peerDependencies": {
+		"@angular/common": "^19.0.0",
+		"@angular/core": "^19.0.0"
+	},
+	"sideEffects": false,
+	"type": "module",
+	"version": "0.0.1"
+}

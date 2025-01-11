@@ -27,6 +27,37 @@
 			},
 			"outputs": ["{workspaceRoot}/dist/{projectRoot}"]
 		},
+		"build-storybook": {
+			"cache": true,
+			"configurations": {
+				"ci": {
+					"quiet": true
+				}
+			},
+			"dependsOn": ["build"],
+			"inputs": [
+				"default",
+				"^production",
+				"{projectRoot}/.storybook/**/*",
+				"{projectRoot}/tsconfig.storybook.json"
+			],
+			"options": {
+				"assets": [
+					{
+						"glob": "**/*.*",
+						"input": "apps/client/assets",
+						"output": "assets/"
+					}
+				],
+				"browserTarget": "{projectName}:build-storybook",
+				"compodoc": false,
+				"configDir": "{projectRoot}/src/lib/.storybook",
+				"outputDir": "{workspaceRoot}/dist/storybook/{projectRoot}",
+				"styles": ["libs/shared-ui/styles.scss"],
+				"webpackStatsJson": true
+			},
+			"outputs": ["{options.outputDir}"]
+		},
 		"extract-i18n": {
 			"cache": true,
 			"outputs": ["{options.outputPath}"]
@@ -35,6 +66,28 @@
 			"executor": "@nx/js:node",
 			"options": {
 				"buildTarget": "{projectName}:build"
+			}
+		},
+		"storybook": {
+			"configurations": {
+				"ci": {
+					"quiet": true
+				}
+			},
+			"executor": "@storybook/angular:start-storybook",
+			"options": {
+				"assets": [
+					{
+						"glob": "**/*.*",
+						"input": "apps/client/assets",
+						"output": "assets/"
+					}
+				],
+				"browserTarget": "{projectName}:build-storybook",
+				"compodoc": false,
+				"configDir": "{projectRoot}/src/lib/.storybook",
+				"port": 4400,
+				"styles": ["libs/shared-ui/styles.scss"]
 			}
 		},
 		"test": {
@@ -95,6 +148,15 @@
 			"plugin": "@nx/eslint/plugin",
 			"options": {
 				"targetName": "lint"
+			}
+		},
+		{
+			"plugin": "@nx/storybook/plugin",
+			"options": {
+				"serveStorybookTargetName": "storybook",
+				"buildStorybookTargetName": "build-storybook",
+				"testStorybookTargetName": "test-storybook",
+				"staticStorybookTargetName": "static-storybook"
 			}
 		}
 	],
