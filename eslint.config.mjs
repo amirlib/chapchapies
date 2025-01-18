@@ -19,8 +19,8 @@ export default [
 					allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
 					depConstraints: [
 						{
-							sourceTag: '*',
 							onlyDependOnLibsWithTags: ['*'],
+							sourceTag: '*',
 						},
 					],
 				},
@@ -30,12 +30,24 @@ export default [
 	{
 		files: ['**/*.ts', '**/*.js', '**/*.mjs'],
 		rules: {
+			'max-classes-per-file': ['error', 1],
 			'@stylistic/ts/comma-dangle': ['error', 'always-multiline'],
 			'@stylistic/ts/indent': ['error', 'tab'],
+			'@stylistic/ts/lines-around-comment': 'off',
+			'@stylistic/ts/lines-between-class-members': ['error', 'always'],
+			'@stylistic/ts/no-extra-parens': 'off',
 			'@stylistic/ts/object-curly-spacing': ['error', 'always'],
 			'@stylistic/ts/object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
 			'@stylistic/ts/quote-props': ['error', 'as-needed'],
 			'@stylistic/ts/quotes': ['error', 'single'],
+			'@stylistic/ts/space-before-function-paren': [
+				'error',
+				{
+					anonymous: 'always',
+					asyncArrow: 'always',
+					named: 'never',
+				},
+			],
 		},
 	},
 	{
@@ -49,7 +61,7 @@ export default [
 			],
 		},
 		languageOptions: {
-			parser: require('jsonc-eslint-parser'),
+			parser: import('jsonc-eslint-parser'),
 		},
 	},
 ];

@@ -1,7 +1,9 @@
 import base from './eslint.config.mjs';
+import ngLint from 'angular-eslint';
 
 export default [
 	...base,
+	...ngLint.configs.tsAll,
 	{
 		files: ['**/*.ts'],
 		rules: {

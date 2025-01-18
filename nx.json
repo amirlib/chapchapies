@@ -25,6 +25,16 @@
 					"optimization": true
 				}
 			},
+			"dependsOn": ["^build"],
+			"options": {
+				"assets": ["{projectRoot}/src/assets"],
+				"compiler": "tsc",
+				"generatePackageJson": true,
+				"main": "{projectRoot}/src/main.ts",
+				"outputPath": "{workspaceRoot}/dist/{projectRoot}",
+				"target": "node",
+				"tsConfig": "{projectRoot}/tsconfig.app.json"
+			},
 			"outputs": ["{workspaceRoot}/dist/{projectRoot}"]
 		},
 		"build-storybook": {
