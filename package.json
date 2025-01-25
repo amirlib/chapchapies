@@ -41,6 +41,7 @@
 		"@nx/workspace": "20.3.1",
 		"@playwright/test": "^1.36.0",
 		"@schematics/angular": "~19.0.0",
+		"@storybook/addon-essentials": "^8.5.1",
 		"@storybook/eslint-config-storybook": "^4.0.0",
 		"@stylistic/eslint-plugin-ts": "^2.12.1",
 		"@swc-node/register": "~1.9.1",

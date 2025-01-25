@@ -1,5 +1,5 @@
 {
-	"name": "@chapchapies/ui-components",
+	"name": "@chapchapies/shared-ui",
 	"version": "0.0.1",
 	"type": "module",
 	"peerDependencies": {

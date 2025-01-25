@@ -1,0 +1,7 @@
+a.z-link {
+	@apply text-primary-400 transition;
+
+	&:hover {
+		@apply text-primary-600;
+	}
+}

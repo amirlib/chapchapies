@@ -1,0 +1,5 @@
+@use 'button';
+
+:host {
+	@extend .c-button;
+}

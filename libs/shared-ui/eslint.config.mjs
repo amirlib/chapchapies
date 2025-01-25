@@ -14,7 +14,7 @@ export default [
 			'@angular-eslint/component-selector': [
 				'error',
 				{
-					prefix: 'ch',
+					prefix: 'c',
 					style: 'kebab-case',
 					type: 'element',
 				},
@@ -22,7 +22,7 @@ export default [
 			'@angular-eslint/directive-selector': [
 				'error',
 				{
-					prefix: 'ch',
+					prefix: 'c',
 					style: 'camelCase',
 					type: 'attribute',
 				},
