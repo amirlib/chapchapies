@@ -14,7 +14,7 @@ const Size: Record<SizeEnum, string> = {
 };
 
 @Component({
-	selector: 'ch-icon',
+	selector: 'c-icon',
 	template: '',
 	styles: `
 		:host {
@@ -63,7 +63,7 @@ export class IconsComponent {
 
 	svg = computed(() => this.loadedImage() ?? document.createElement('svg'));
 
-	private handleImageElement(element: HTMLImageElement) {
+	private handleImageElement(element: SVGElement) {
 		const newImage = element.cloneNode(true) as HTMLElement;
 
 		this.setStyle();

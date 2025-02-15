@@ -1,2 +1,3 @@
+export * from './enums';
+
 export * from './http.service';
-export * from './size.enum';

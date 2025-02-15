@@ -5,9 +5,9 @@ import { HttpService, MimeType } from '../../common';
 export class IconsService {
 	http = inject(HttpService);
 
-	private cache: Map<string, Promise<HTMLImageElement | null>> = new Map();
+	private cache: Map<string, Promise<SVGElement | null>> = new Map();
 
-	async load(url: string): Promise<HTMLImageElement | null> {
+	async load(url: string): Promise<SVGElement | null> {
 		const cachedIcon = this.cache.get(url);
 
 		if (cachedIcon) return cachedIcon;
@@ -21,7 +21,7 @@ export class IconsService {
 
 	private async loadUrl(url: string) {
 		try {
-			return await this.loadLocalImage(url);
+			return await this.loadLocalSvg(url);
 		} catch (e) {
 			this.cache.delete(url);
 
@@ -29,23 +29,16 @@ export class IconsService {
 		}
 	}
 
-	private async loadLocalImage(url: string) {
+	private async loadLocalSvg(url: string) {
 		const blob = await this.http.getBlob(url);
 		const mimeType = blob.type;
 
 		if (mimeType === MimeType.HTML) throw new Error('Not an image!');
 
-		return this.createImageElement(url);
+		return this.createSvg(blob);
 	}
 
-	private createImageElement(href: string) {
-		const img = document.createElement('img');
-
-		img.setAttribute('height', '100%');
-		img.setAttribute('referrerpolicy', 'no-referrer');
-		img.setAttribute('src', href);
-		img.setAttribute('width', '100%');
-
-		return img;
+	private async createSvg(blob: Blob) {
+		return new DOMParser().parseFromString(await blob.text(), 'image/svg+xml').querySelector('svg');
 	}
 }
