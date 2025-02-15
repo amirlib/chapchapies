@@ -1,5 +1,10 @@
-import { Preview } from '@storybook/angular';
+import { provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { applicationConfig, Preview } from '@storybook/angular';
 
 export const preview: Preview = {
-	parameters: {},
+	decorators: [
+		applicationConfig({
+			providers: [provideExperimentalZonelessChangeDetection()],
+		}),
+	],
 };

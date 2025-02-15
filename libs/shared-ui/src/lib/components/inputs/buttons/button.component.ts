@@ -26,7 +26,7 @@ export class ButtonComponent {
 
 	icon = input<ButtonIcon | null>(null);
 
-	variant = input<ButtonVariants>('primary');
+	variant = input<ButtonVariants>(ButtonVariants.primary);
 
 	@HostBinding('class')
 	get class() {

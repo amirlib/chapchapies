@@ -143,6 +143,11 @@
 			"cache": true,
 			"inputs": ["default", "{workspaceRoot}/.eslintignore", "{workspaceRoot}/eslint.config.cjs"]
 		},
+		"@nx/js:tsc": {
+			"cache": true,
+			"dependsOn": ["^build"],
+			"inputs": ["production", "^production"]
+		},
 		"e2e-ci--**/*": {
 			"dependsOn": ["^build"]
 		}

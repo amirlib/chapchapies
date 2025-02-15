@@ -16,6 +16,7 @@
 		"noPropertyAccessFromIndexSignature": true,
 		"paths": {
 			"@chapchapies/icons": ["libs/icons/src/index.ts"],
+			"@chapchapies/shared-lib": ["libs/shared-lib/src/index.ts"],
 			"@chapchapies/shared-ui": ["libs/shared-ui/src/index.ts"],
 			"@chapchapies/storybook": ["libs/storybook/src/index.ts"]
 		},

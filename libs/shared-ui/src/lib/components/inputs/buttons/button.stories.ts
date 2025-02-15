@@ -1,11 +1,13 @@
 import { ButtonComponent } from './button.component';
 import { createStoryModule } from '@chapchapies/storybook';
 import { Meta, StoryObj } from '@storybook/angular';
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgForOf } from '@angular/common';
 import { ButtonVariants } from './types';
+import { enumToArray } from '@chapchapies/shared-lib';
 
 @Component({
+	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [ButtonComponent, NgForOf],
 	template: `
 		<fieldset *ngFor="let variant of variants" class="flex gap-4 p-4">
@@ -35,7 +37,7 @@ import { ButtonVariants } from './types';
 	`,
 })
 class ButtonsStoryComponent {
-	variants: Array<ButtonVariants> = ['primary', 'secondary']; //todo
+	variants: Array<ButtonVariants> = enumToArray(ButtonVariants);
 }
 
 const meta: Meta<typeof ButtonsStoryComponent> = {
