@@ -1,0 +1,77 @@
+.c-button {
+	@apply flex shrink-0 items-center gap-2;
+	@apply h-8 px-4;
+	@apply cursor-pointer;
+	@apply rounded-lg;
+	@apply text-sm;
+
+	&.primary {
+		@apply bg-primary-400;
+		@apply text-primary-50;
+
+		&:hover {
+			@apply bg-primary-500;
+		}
+
+		&.ghost {
+			@apply text-primary-400;
+
+			&:hover {
+				@apply bg-primary-500;
+				@apply text-primary-50;
+			}
+		}
+
+		&.outline {
+			@apply border-primary-400;
+			@apply text-primary-400;
+
+			&:hover {
+				@apply bg-primary-500;
+				@apply text-primary-50;
+			}
+		}
+	}
+
+	&.secondary {
+		@apply bg-secondary-400;
+		@apply text-secondary-50;
+
+		&:hover {
+			@apply bg-secondary-500;
+		}
+
+		&.ghost {
+			@apply text-secondary-400;
+
+			&:hover {
+				@apply bg-secondary-500;
+				@apply text-secondary-50;
+			}
+		}
+
+		&.outline {
+			@apply border-secondary-400;
+			@apply text-secondary-400;
+
+			&:hover {
+				@apply bg-secondary-500;
+				@apply text-secondary-50;
+			}
+		}
+	}
+
+	&.disabled {
+		@apply opacity-40;
+		@apply pointer-events-none cursor-default;
+	}
+
+	&.ghost {
+		@apply bg-transparent;
+	}
+
+	&.outline {
+		@apply bg-transparent;
+		@apply border outline-0;
+	}
+}
