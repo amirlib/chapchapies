@@ -1,6 +1,6 @@
 import { createGlobPatternsForDependencies } from '@nx/angular/tailwind';
 import { join } from 'path';
-import { blue, cyan, gray, green, indigo, neutral, orange, pink, purple, red, yellow } from 'tailwindcss/colors';
+import { blue, gray, green, indigo, lime, neutral, orange, pink, purple, red, yellow } from 'tailwindcss/colors';
 
 export default {
 	content: [
@@ -12,7 +12,6 @@ export default {
 		colors: {
 			blue,
 			currentColor: 'currentColor',
-			cyan,
 			gray,
 			green,
 			inherit: 'inherit',
@@ -22,6 +21,7 @@ export default {
 			primary: indigo,
 			purple,
 			red,
+			secondary: lime,
 			transparent: 'transparent',
 			yellow,
 		},

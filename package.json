@@ -1,6 +1,6 @@
 {
 	"license": "MIT",
-	"name": "chapcahpies",
+	"name": "chapchapies",
 	"private": true,
 	"scripts": {
 		"clean": "nx reset",
