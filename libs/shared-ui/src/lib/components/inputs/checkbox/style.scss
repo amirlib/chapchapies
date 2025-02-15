@@ -1,0 +1,45 @@
+.c-checkbox {
+	@apply cursor-pointer appearance-none;
+	@apply h-5 w-5;
+	@apply rounded border border-primary-300;
+
+	&:hover {
+		@apply border-primary-500;
+	}
+
+	&:checked,
+	&[checked='true'],
+	&[aria-checked='true'] {
+		@apply bg-primary-500 bg-cover;
+		@apply border-primary-500;
+
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' stroke-width='2' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M5 13L9 17L19 7' stroke='white' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	}
+
+	&:indeterminate {
+		@apply bg-primary-50;
+		@apply border-primary-50;
+
+		&:before {
+			@apply block;
+			@apply bg-primary-600;
+			@apply h-[2px] w-[8px];
+
+			content: '';
+			transform: translate(5px, 8px);
+		}
+
+		&:hover {
+			@apply bg-primary-100;
+			@apply border-primary-100;
+		}
+
+		&:disabled {
+			@apply cursor-not-allowed border-gray-200 opacity-50;
+		}
+	}
+
+	&:disabled {
+		@apply cursor-not-allowed border-gray-200 opacity-50;
+	}
+}
