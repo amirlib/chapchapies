@@ -4,7 +4,6 @@ import { StorybookConfig } from '@storybook/angular';
 
 const config: StorybookConfig = {
 	addons: ['@storybook/addon-essentials'],
-	docs: {},
 	framework: '@storybook/angular',
 	stories: ['../**/*.@(mdx|stories.@(js|ts))'],
 	webpackFinal: async (config, { configType }) => {

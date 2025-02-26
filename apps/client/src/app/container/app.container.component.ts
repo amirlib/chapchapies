@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-	selector: 'chapchapies-root',
-	template: ' <router-outlet></router-outlet> ',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	imports: [RouterOutlet],
+	selector: 'chapchapies-container',
+	template: ' <router-outlet></router-outlet> ',
 })
-export class AppComponent {}
+export class AppContainerComponent {}

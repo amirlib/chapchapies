@@ -1,20 +1,17 @@
 import { DecoratorFunction } from 'storybook/internal/types';
 import { AngularRenderer } from '@storybook/angular';
-import { StoryFnAngularReturnType } from '@storybook/angular/dist/client/types';
-import { ApplicationConfig } from '@angular/core';
 
 export const wrapperStory = (wrapperFn: (story?: string) => string): DecoratorFunction<AngularRenderer> => {
-	return (story): StoryFnAngularReturnType => {
+	return (story) => {
 		const s = story();
 
-		const appConfig = s.applicationConfig ?? ({} as ApplicationConfig);
-		const providers = appConfig.providers ?? [];
+		const providers = s.applicationConfig?.providers ?? [];
 
 		return {
 			...s,
 			template: wrapperFn(s.template),
 			applicationConfig: {
-				...appConfig,
+				...(s.applicationConfig ?? {}),
 				providers: [...providers],
 			},
 		};

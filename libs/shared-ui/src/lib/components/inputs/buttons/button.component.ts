@@ -38,5 +38,5 @@ export class ButtonComponent {
 		return this.disabled();
 	}
 
-	protected readonly DEFAULT_ICON_SIZE = SizeEnum.xSmall;
+	protected readonly DEFAULT_ICON_SIZE = SizeEnum.xs;
 }

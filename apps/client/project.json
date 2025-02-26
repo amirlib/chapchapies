@@ -9,7 +9,10 @@
 		"build": {
 			"configurations": {
 				"development": {
+					"buildOptimizer": false,
 					"extractLicenses": false,
+					"localize": false,
+					"namedChunks": true,
 					"optimization": false,
 					"sourceMap": true
 				},
@@ -34,9 +37,19 @@
 			"options": {
 				"assets": [
 					{
+						"glob": "**/*.svg",
+						"input": "libs/icons/src/lib/assets",
+						"output": "assets/icons/"
+					},
+					{
 						"glob": "**/*.*",
 						"input": "apps/client/assets",
 						"output": "assets/"
+					},
+					{
+						"glob": "*",
+						"input": "node_modules/iconoir/icons",
+						"output": "assets/icons/"
 					}
 				],
 				"browser": "apps/client/src/main.ts",
@@ -45,12 +58,6 @@
 				"outputPath": "dist/apps/client",
 				"styles": ["libs/shared-ui/styles.scss"],
 				"tsConfig": "apps/client/tsconfig.app.json"
-			}
-		},
-		"extract-i18n": {
-			"executor": "@angular-devkit/build-angular:extract-i18n",
-			"options": {
-				"buildTarget": "client:build"
 			}
 		},
 		"lint": {
@@ -67,6 +74,18 @@
 			},
 			"defaultConfiguration": "development",
 			"executor": "@angular-devkit/build-angular:dev-server"
+		},
+		"build-storybook": {
+			"executor": "@storybook/angular:build-storybook",
+			"options": {
+				"configDir": "{projectRoot}/src/app/.storybook"
+			}
+		},
+		"storybook": {
+			"executor": "@storybook/angular:start-storybook",
+			"options": {
+				"configDir": "{projectRoot}/src/app/.storybook"
+			}
 		}
 	}
 }
