@@ -33,7 +33,7 @@
 				}
 			},
 			"defaultConfiguration": "production",
-			"executor": "@angular-devkit/build-angular:application",
+			"executor": "@angular-devkit/build-angular:browser-esbuild",
 			"options": {
 				"assets": [
 					{
@@ -52,9 +52,9 @@
 						"output": "assets/icons/"
 					}
 				],
-				"browser": "apps/client/src/main.ts",
 				"index": "apps/client/src/index.html",
 				"inlineStyleLanguage": "scss",
+				"main": "apps/client/src/main.ts",
 				"outputPath": "dist/apps/client",
 				"styles": ["libs/shared-ui/styles.scss"],
 				"tsConfig": "apps/client/tsconfig.app.json"
