@@ -29,12 +29,13 @@
 			"executor": "@nx/webpack:webpack",
 			"options": {
 				"assets": ["{projectRoot}/src/assets"],
-				"compiler": "tsc",
+				"compiler": "swc",
 				"generatePackageJson": true,
 				"main": "{projectRoot}/src/main.ts",
 				"outputPath": "{workspaceRoot}/dist/{projectRoot}",
 				"target": "node",
-				"tsConfig": "{projectRoot}/tsconfig.app.json"
+				"tsConfig": "{projectRoot}/tsconfig.app.json",
+				"webpackConfig": "webpack.config.mts"
 			},
 			"outputs": ["{workspaceRoot}/dist/{projectRoot}"]
 		},
@@ -173,6 +174,16 @@
 				"buildStorybookTargetName": "build-storybook",
 				"testStorybookTargetName": "test-storybook",
 				"staticStorybookTargetName": "static-storybook"
+			}
+		},
+		{
+			"plugin": "@nx/webpack/plugin",
+			"options": {
+				"buildTargetName": "build",
+				"serveTargetName": "serve",
+				"previewTargetName": "preview",
+				"buildDepsTargetName": "build-deps",
+				"watchDepsTargetName": "watch-deps"
 			}
 		}
 	],

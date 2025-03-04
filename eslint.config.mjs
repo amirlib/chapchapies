@@ -28,7 +28,7 @@ export default [
 		},
 	},
 	{
-		files: ['**/*.ts', '**/*.js', '**/*.mjs'],
+		files: ['**/*.ts', '**/*.js', '**/*.mjs', '**/*.mts'],
 		rules: {
 			'max-classes-per-file': ['error', 1],
 			'@stylistic/ts/comma-dangle': ['error', 'always-multiline'],

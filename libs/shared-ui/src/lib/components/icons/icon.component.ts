@@ -5,11 +5,11 @@ import { IconsService } from './icons.service';
 import { derivedAsync } from 'ngxtension/derived-async';
 
 const Size: Record<SizeEnum, string> = {
-	xSmall: '16px',
+	xs: '16px',
 	small: '18px',
 	normal: '20px',
 	large: '22px',
-	xLarge: '24px',
+	xl: '24px',
 	full: '100%',
 };
 

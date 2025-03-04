@@ -1,0 +1,19 @@
+{
+	"name": "management",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "apps/management/src",
+	"projectType": "application",
+	"tags": [],
+	"targets": {
+		"build": {
+			"executor": "@nx/webpack:webpack"
+		},
+		"serve": {
+			"executor": "@nx/js:node",
+			"options": {
+				"inspect": true,
+				"port": 9300
+			}
+		}
+	}
+}

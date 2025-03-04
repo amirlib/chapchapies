@@ -1,12 +1,18 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 @Component({
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	selector: 'calendar',
-	template: '',
+	template: `
+		<span> Current date {{ currentDate | date }} </span>
+		<span> Date received from server: Not received yet :) </span>
+	`,
 	host: {
-		class: 'grid grid-cols-6',
+		class: 'flex flex-col gap-4 p-4',
 	},
-	imports: [],
+	imports: [DatePipe],
 })
-export class CalendarComponent {}
+export class CalendarComponent {
+	currentDate = new Date();
+}
