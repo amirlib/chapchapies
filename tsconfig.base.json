@@ -13,10 +13,11 @@
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitOverride": true,
 		"noImplicitReturns": true,
-		"noPropertyAccessFromIndexSignature": true,
+		"noPropertyAccessFromIndexSignature": false,
 		"paths": {
 			"@chapchapies/icons": ["libs/icons/src/index.ts"],
 			"@chapchapies/shared-lib": ["libs/shared-lib/src/index.ts"],
+			"@chapchapies/shared-server": ["libs/shared-server/src/index.ts"],
 			"@chapchapies/shared-ui": ["libs/shared-ui/src/index.ts"],
 			"@chapchapies/storybook": ["libs/storybook/src/index.ts"]
 		},
