@@ -74,6 +74,18 @@
 			"cache": true,
 			"outputs": ["{options.outputPath}"]
 		},
+		"generate-schemas": {
+			"cache": true,
+			"dependsOn": ["build"],
+			"executor": "@chapchapies/tools:generate-schemas",
+			"options": {
+				"buildTarget": "{workspaceRoot}/dist/{projectRoot}",
+				"env": {
+					"GENERATE_SCHEMA": true
+				}
+			},
+			"outputs": ["{workspaceRoot}/libs/generated/subgraph/{projectName}.gql"]
+		},
 		"serve": {
 			"executor": "@nx/js:node",
 			"options": {

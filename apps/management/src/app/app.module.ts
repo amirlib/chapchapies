@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { GraphqlConfigModule } from '@chapchapies/shared-server';
+import { UsersModule } from './users/users.module';
 
 @Module({
-	controllers: [AppController],
-	providers: [AppService],
+	imports: [GraphqlConfigModule, UsersModule],
 })
 export class AppModule {}

@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { Logger, Type } from '@nestjs/common';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { castToBoolean } from '@chapchapies/shared-lib';
-import { generateGqlSubgraphSchema } from '../gql/generateGqlSubgraphSchema';
+import { getBootstrapMode } from './get.bootstrap.mode';
 
 const GENERATE_SCHEMA = castToBoolean(process.env.GENERATE_SCHEMA, false);
 
@@ -24,20 +24,16 @@ export type BootstrapNestAppOptions = {
 export const bootstrapNest = async (appModule: Type, port: number | string, options?: BootstrapNestAppOptions) => {
 	const start = performance.now();
 
-	Logger.log(`✍️ Starting ${process.env.APP_NAME}`, process.env.APP_NAME);
+	Logger.log(`✍️ Starting ${process.env.APP_NAME} on ${getBootstrapMode()} mode`, process.env.APP_NAME);
 
 	const app = await NestFactory.create<NestFastifyApplication>(appModule, new FastifyAdapter());
 
 	app.enableShutdownHooks();
 
 	if (GENERATE_SCHEMA) {
-		if (options?.supportsGql) {
-			Logger.log('Generating GQL Schemas', process.env.APP_NAME);
-
-			await generateGqlSubgraphSchema(app);
-
-			Logger.log('✅ GQL Schemas generated successfully', process.env.APP_NAME);
-		}
+		// if (options?.supportsGql) {
+		// 	await generateGqlSubgraphSchema(app);
+		// }
 
 		await app.close();
 
@@ -49,5 +45,5 @@ export const bootstrapNest = async (appModule: Type, port: number | string, opti
 	Logger.log(`🚀 ${process.env.APP_NAME} is running on: http://localhost:${port}/`, process.env.APP_NAME);
 	Logger.log(`⏱️ Bootstrap took ${Math.round(performance.now() - start) / 1000}s`, process.env.APP_NAME);
 
-	console.log('✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ');
+	console.log('✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅');
 };

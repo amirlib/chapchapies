@@ -1,14 +1,15 @@
-import { RezonateBaseEntity } from '@chapchapies/shared-server';
+import { BaseEntity } from '@chapchapies/shared-server';
 import { Field, ObjectType } from '@nestjs/graphql';
 
-@ObjectType({ implements: RezonateBaseEntity })
-export class UserEntity extends RezonateBaseEntity {
-	@Field()
+@ObjectType({ implements: [BaseEntity] })
+export class UserEntity extends BaseEntity {
+	@Field(() => String)
 	firstName!: string;
 
-	@Field()
+	@Field(() => String)
 	lastName!: string;
 
+	@Field(() => String)
 	get fullName() {
 		return `${this.firstName} ${this.lastName}`;
 	}

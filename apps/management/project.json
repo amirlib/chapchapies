@@ -8,6 +8,9 @@
 		"build": {
 			"executor": "@nx/webpack:webpack"
 		},
+		"generate-schemas": {
+			"executor": "@chapchapies/tools:generate-schemas"
+		},
 		"serve": {
 			"executor": "@nx/js:node",
 			"options": {

@@ -1,0 +1,18 @@
+{
+	"$schema": "https://json-schema.org/schema",
+	"description": "",
+	"properties": {
+		"buildTarget": {
+			"description": "Project target's path to generate schemas for",
+			"type": "string"
+		},
+		"env": {
+			"description": "Environment variables to use when generating schemas",
+			"type": "object"
+		}
+	},
+	"required": ["buildTarget", "env"],
+	"title": "Generate Schemas executor",
+	"type": "object",
+	"version": 2
+}

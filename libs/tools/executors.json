@@ -1,0 +1,9 @@
+{
+	"executors": {
+		"generate-schemas": {
+			"description": "generate-schemas executor",
+			"implementation": "./src/executors/generate-schemas/generate.schemas",
+			"schema": "./src/executors/generate-schemas/schema.json"
+		}
+	}
+}
