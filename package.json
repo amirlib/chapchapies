@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"build": "nx run-many --target build --all --parallel=4",
-		"clean": "nx reset",
+		"clean": "tsx scripts/clean.ts & nx reset",
 		"cb": "npm run clean && npm run build",
 		"sb-client": "nx storybook client",
 		"sb-shared-ui": "nx storybook shared-ui",
@@ -105,7 +105,8 @@
 		"tailwindcss": "^3.4.17",
 		"ts-jest": "^29.1.0",
 		"ts-node": "10.9.1",
-		"tslib": "^2.3.0",
+		"tslib": "2.8.1",
+		"tsx": "4.19.3",
 		"typescript": "5.7.3",
 		"typescript-eslint": "8.26.0",
 		"webpack": "5.98.0",
