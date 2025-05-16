@@ -15,6 +15,7 @@
 		"noImplicitReturns": true,
 		"noPropertyAccessFromIndexSignature": false,
 		"paths": {
+			"@chapchapies/client-schema": ["apps/client/schema/src/index.ts"],
 			"@chapchapies/icons": ["libs/icons/src/index.ts"],
 			"@chapchapies/shared-lib": ["libs/shared-lib/src/index.ts"],
 			"@chapchapies/shared-server": ["libs/shared-server/src/index.ts"],

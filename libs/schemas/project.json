@@ -1,0 +1,14 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"implicitDependencies": ["management"],
+	"name": "schemas",
+	"projectType": "library",
+	"sourceRoot": "libs/schemas",
+	"targets": {
+		"generate-schemas": {
+			"executor": "nx:noop",
+			"outputs": ["{workspaceRoot}/libs/generated"],
+			"dependsOn": ["^generate-schemas"]
+		}
+	}
+}

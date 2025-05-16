@@ -5,15 +5,15 @@
 		"types": []
 	},
 	"exclude": [
-		"jest.config.ts",
-		"src/**/*.test.ts",
-		"src/**/*.spec.ts"
+      "jest.config.ts",
+      "host/src/**/*.test.ts",
+      "host/src/**/*.spec.ts"
 	],
 	"files": [
-		"src/main.ts"
+      "src/main.ts"
 	],
 	"include": [
-		"src/**/*.d.ts",
-		"src/**/*.ts"
+      "host/src/**/*.d.ts",
+      "host/src/**/*.ts"
 	]
 }

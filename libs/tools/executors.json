@@ -4,6 +4,11 @@
 			"description": "generate-schemas executor",
 			"implementation": "./src/executors/generate-schemas/generate.schemas",
 			"schema": "./src/executors/generate-schemas/schema.json"
+		},
+		"generate-sdk": {
+			"implementation": "./src/executors/generate-sdk/generate.sdk",
+			"schema": "./src/executors/generate-sdk/schema.json",
+			"description": "generate-sdk executor"
 		}
 	}
 }

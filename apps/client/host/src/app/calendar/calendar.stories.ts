@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/angular';
 import { CalendarComponent } from './calendar.component';
-import { createStoryModule } from '@chapchapies/storybook';
+import { createStoryModule } from 'libs/storybook/src';
 
 const meta: Meta<typeof CalendarComponent> = {
 	component: CalendarComponent,

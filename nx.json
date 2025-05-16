@@ -25,7 +25,7 @@
 					"optimization": true
 				}
 			},
-			"dependsOn": ["^build"],
+			"dependsOn": ["^build", "generate-sdk"],
 			"executor": "@nx/webpack:webpack",
 			"options": {
 				"assets": ["{projectRoot}/src/assets"],
@@ -86,6 +86,23 @@
 			},
 			"outputs": ["{workspaceRoot}/libs/generated/subgraph/{projectName}.gql"]
 		},
+		"generate-sdk": {
+			"cache": true,
+			"dependsOn": ["^generate-schemas"],
+			"inputs": [
+				"{projectRoot}/**/*.gql",
+				"{projectRoot}/**/*.graphql",
+				{
+					"dependentTasksOutputFiles": "{workspaceRoot}/libs/generated/gql/*.gql",
+					"transitive": true
+				}
+			],
+			"options": {
+				"schemaFolderPath": "libs/generated/gql/",
+				"output": "{projectRoot}/src/generated/"
+			},
+			"outputs": ["{options.output}", "{projectRoot}/**/*.generated.ts"]
+		},
 		"serve": {
 			"executor": "@nx/js:node",
 			"options": {
@@ -138,7 +155,7 @@
 			"inputs": ["production", "^production"]
 		},
 		"@nx/angular:ng-packagr-lite": {
-			"dependsOn": ["^build"],
+			"dependsOn": ["^build", "generate-sdk"],
 			"outputs": ["{workspaceRoot}/dist/{projectRoot}"],
 			"options": {
 				"project": "{projectRoot}/ng-package.json"

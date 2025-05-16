@@ -1,0 +1,28 @@
+{
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"implicitDependencies": ["schemas"],
+	"name": "client-schema",
+	"prefix": "lib",
+	"projectType": "library",
+	"sourceRoot": "apps/client/schema/src",
+	"targets": {
+		"build": {
+			"executor": "@nx/angular:ng-packagr-lite"
+		},
+		"generate-sdk": {
+			"executor": "@chapchapies/tools:generate-sdk",
+			"inputs": [
+				"{workspaceRoot}/apps/client/**/*.gql",
+				{
+					"dependentTasksOutputFiles": "**/*.gql",
+					"transitive": true
+				}
+			],
+			"outputs": ["{options.output}", "{workspaceRoot}/apps/client/**/*.generated.ts"],
+			"options": {
+				"customQueriesDir": "apps/client",
+				"frontend": true
+			}
+		}
+	}
+}

@@ -7,7 +7,7 @@ export class UsersResolver {
 	constructor(private readonly usersService: UsersService) {}
 
 	@Query(() => UserEntity)
-	createUser() {
+	getUser() {
 		return this.usersService.create();
 	}
 }

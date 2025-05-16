@@ -1,10 +1,10 @@
 {
-	"name": "client",
-	"$schema": "../../node_modules/nx/schemas/project-schema.json",
-	"projectType": "application",
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
+	"implicitDependencies": ["client-schema"],
+	"name": "client-host",
 	"prefix": "app",
-	"sourceRoot": "apps/client/src",
-	"tags": [],
+	"projectType": "application",
+	"sourceRoot": "apps/client/host/src",
 	"targets": {
 		"build": {
 			"configurations": {
@@ -33,6 +33,7 @@
 				}
 			},
 			"defaultConfiguration": "production",
+			"dependsOn": ["^build"],
 			"executor": "@angular-devkit/build-angular:browser-esbuild",
 			"options": {
 				"assets": [
@@ -52,12 +53,18 @@
 						"output": "assets/icons/"
 					}
 				],
-				"index": "apps/client/src/index.html",
+				"index": "apps/client/host/src/index.html",
 				"inlineStyleLanguage": "scss",
-				"main": "apps/client/src/main.ts",
-				"outputPath": "dist/apps/client",
+				"main": "apps/client/host/src/main.ts",
+				"outputPath": "dist/apps/client/host",
 				"styles": ["libs/shared-ui/styles.scss"],
-				"tsConfig": "apps/client/tsconfig.app.json"
+				"tsConfig": "apps/client/host/tsconfig.app.json"
+			}
+		},
+		"build-storybook": {
+			"executor": "@storybook/angular:build-storybook",
+			"options": {
+				"configDir": "{projectRoot}/src/app/.storybook"
 			}
 		},
 		"lint": {
@@ -66,20 +73,14 @@
 		"serve": {
 			"configurations": {
 				"development": {
-					"buildTarget": "client:build:development"
+					"buildTarget": "client-host:build:development"
 				},
 				"production": {
-					"buildTarget": "client:build:production"
+					"buildTarget": "client-host:build:production"
 				}
 			},
 			"defaultConfiguration": "development",
 			"executor": "@angular-devkit/build-angular:dev-server"
-		},
-		"build-storybook": {
-			"executor": "@storybook/angular:build-storybook",
-			"options": {
-				"configDir": "{projectRoot}/src/app/.storybook"
-			}
 		},
 		"storybook": {
 			"executor": "@storybook/angular:start-storybook",

@@ -2,9 +2,11 @@
 <project version="4">
   <component name="NxAngularConfigService" workspaceLocation="file://$PROJECT_DIR$/nx.json">
     <projects>
-      <project name="client" file="file://$PROJECT_DIR$/apps/client/project.json" />
+      <project name="client-host" file="file://$PROJECT_DIR$/apps/client/host/project.json" />
+      <project name="client-schema" file="file://$PROJECT_DIR$/apps/client/schema/project.json" />
       <project name="icons" file="file://$PROJECT_DIR$/libs/icons/project.json" />
       <project name="management" file="file://$PROJECT_DIR$/apps/management/project.json" />
+      <project name="schemas" file="file://$PROJECT_DIR$/libs/schemas/project.json" />
       <project name="shared-lib" file="file://$PROJECT_DIR$/libs/shared-lib/project.json" />
       <project name="shared-server" file="file://$PROJECT_DIR$/libs/shared-server/project.json" />
       <project name="shared-ui" file="file://$PROJECT_DIR$/libs/shared-ui/project.json" />

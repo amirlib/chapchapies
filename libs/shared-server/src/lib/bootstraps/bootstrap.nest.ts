@@ -3,6 +3,7 @@ import { Logger, Type } from '@nestjs/common';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { castToBoolean } from '@chapchapies/shared-lib';
 import { getBootstrapMode } from './get.bootstrap.mode';
+import { generateGqlSubgraphSchema } from '../gql/generate.gql.subgraph.schema';
 
 const GENERATE_SCHEMA = castToBoolean(process.env.GENERATE_SCHEMA, false);
 
@@ -31,9 +32,9 @@ export const bootstrapNest = async (appModule: Type, port: number | string, opti
 	app.enableShutdownHooks();
 
 	if (GENERATE_SCHEMA) {
-		// if (options?.supportsGql) {
-		// 	await generateGqlSubgraphSchema(app);
-		// }
+		if (options?.supportsGql) {
+			await generateGqlSubgraphSchema(app);
+		}
 
 		await app.close();
 

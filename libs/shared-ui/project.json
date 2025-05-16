@@ -1,7 +1,6 @@
 {
 	"$schema": "../../node_modules/nx/schemas/project-schema.json",
 	"name": "shared-ui",
-	"prefix": "chapchapies",
 	"projectType": "library",
 	"sourceRoot": "libs/shared-ui/src",
 	"tags": [],

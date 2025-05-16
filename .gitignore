@@ -2,6 +2,7 @@
 
 .nx
 generated
+**/*.generated.ts
 
 # compiled output
 dist
