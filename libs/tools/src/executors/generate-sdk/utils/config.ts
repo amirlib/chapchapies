@@ -9,31 +9,30 @@ const scalars = {
 };
 
 const config = {
+	defaultScalarType: 'unknown',
 	extractAllFieldsToTypes: true,
 	namingConvention: 'keep',
-	scalars,
+	scalars: { ...scalars },
 	strictScalars: true,
-};
-
-const operationConfig = {
-	config: {
-		...config,
-		scalars: {
-			...config.scalars,
-		},
-	},
-	preset: 'near-operation-file' as const,
+	useTypeImports: true,
 };
 
 export const backendConfig = {
-	...operationConfig,
+	config: {
+		...config,
+	},
 	plugins: ['typescript-operations'],
+	preset: 'near-operation-file' as const,
 	presetConfig: { extension: '.generated.ts', baseTypesPath: 'generated/types.ts' },
 };
 
 export const frontendConfig = {
-	...operationConfig,
-	plugins: ['typescript', 'typescript-operations', 'typescript-apollo-angular'],
+	config: {
+		...config,
+		apolloAngularVersion: 10,
+	},
+	plugins: ['typescript-operations', 'typescript-apollo-angular'],
+	preset: 'near-operation-file' as const,
 	presetConfig: { extension: '.generated.ts', baseTypesPath: '~@chapchapies/client-schema' },
 };
 

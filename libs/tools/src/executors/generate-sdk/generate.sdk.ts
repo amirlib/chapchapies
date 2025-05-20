@@ -11,6 +11,7 @@ const generateSdk: PromiseExecutor<GenerateSdkExecutorSchema> = async (options, 
 	const documentsPath = getDocumentsPath(context, options.customQueriesDir);
 	const generatesMap = getGeneratesMap(context, options.frontend);
 	const schemaFiles = getAllSchemaFiles(options.schemaFolderPath, context.projectName ?? '');
+	console.log('generatesMap', generatesMap);
 
 	schemaFiles.forEach((file) => console.log(`>GQL schema file ${file}`));
 

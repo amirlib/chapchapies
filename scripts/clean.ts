@@ -16,7 +16,7 @@ try {
 	// delete all generated folders
 	nodeDelete(['apps/**/generated', 'apps/**/*.generated.ts', '!apps/']);
 
-	console.log('✅ All folders were removed');
+	console.log('✅ All files were removed');
 } catch (err) {
 	console.error(`An Error has occurred while cleaning with error ${err}`);
 }
