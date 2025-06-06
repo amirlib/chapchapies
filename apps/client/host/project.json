@@ -1,10 +1,10 @@
 {
-	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
-	"implicitDependencies": ["client-schema"],
 	"name": "client-host",
+	"$schema": "../../../node_modules/nx/schemas/project-schema.json",
 	"prefix": "app",
 	"projectType": "application",
 	"sourceRoot": "apps/client/host/src",
+	"implicitDependencies": ["client-schema"],
 	"targets": {
 		"build": {
 			"configurations": {
@@ -80,7 +80,8 @@
 				}
 			},
 			"defaultConfiguration": "development",
-			"executor": "@angular-devkit/build-angular:dev-server"
+			"executor": "@angular-devkit/build-angular:dev-server",
+			"continuous": true
 		},
 		"storybook": {
 			"executor": "@storybook/angular:start-storybook",

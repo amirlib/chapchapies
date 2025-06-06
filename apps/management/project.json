@@ -6,7 +6,10 @@
 	"tags": [],
 	"targets": {
 		"build": {
-			"executor": "@nx/webpack:webpack"
+			"executor": "@nx/webpack:webpack",
+			"options": {
+				"webpackConfig": "apps/management/webpack.config.js"
+			}
 		},
 		"generate-schemas": {
 			"executor": "@chapchapies/tools:generate-schemas"
