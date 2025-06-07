@@ -8,7 +8,7 @@
 		"build": {
 			"executor": "@nx/webpack:webpack",
 			"options": {
-				"webpackConfig": "apps/management/webpack.config.js"
+				"webpackConfig": "apps/management/webpack.config.mts"
 			}
 		},
 		"generate-schemas": {
