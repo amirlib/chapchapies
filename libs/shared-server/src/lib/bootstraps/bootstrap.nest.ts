@@ -4,6 +4,7 @@ import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify
 import { castToBoolean } from '@chapchapies/shared-lib';
 import { getBootstrapMode } from './get.bootstrap.mode';
 import { generateGqlSubgraphSchema } from '../gql/generate.gql.subgraph.schema';
+import 'reflect-metadata';
 
 const GENERATE_SCHEMA = castToBoolean(process.env.GENERATE_SCHEMA, false);
 

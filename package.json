@@ -4,11 +4,11 @@
 	"private": true,
 	"scripts": {
 		"build": "nx run-many --target build --all --parallel=4 --verbose",
-		"clean": "tsx scripts/clean.ts & nx reset",
 		"cb": "npm run clean && npm run build",
+		"clean": "tsx scripts/clean.ts & nx reset",
+		"dev": "nx run client-host:serve:development",
 		"sb-client": "nx storybook client",
-		"sb-shared-ui": "nx storybook shared-ui",
-		"dev": "nx run client-host:serve:development"
+		"sb-shared-ui": "nx storybook shared-ui"
 	},
 	"type": "module",
 	"version": "0.0.0",
@@ -35,15 +35,17 @@
 		"@storybook/angular": "8.6.14",
 		"apollo-angular": "10.0.3",
 		"axios": "1.8.2",
-		"dotenv": "16.4.7",
+		"dotenv": "16.5.0",
 		"fs-extra": "11.3.0",
 		"glob": "^11.0.2",
 		"graphql": "16.11.0",
 		"iconoir": "7.10.1",
 		"ngxtension": "4.3.2",
 		"node-delete": "^0.1.2",
+		"pg": "8.16.0",
 		"reflect-metadata": "0.2.2",
 		"rxjs": "7.8.2",
+		"typeorm": "0.3.24",
 		"uuid": "11.1.0"
 	},
 	"devDependencies": {
